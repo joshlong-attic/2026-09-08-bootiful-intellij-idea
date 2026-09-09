@@ -1,4 +1,4 @@
-package com.example.idea4;
+package com.example.idea4.customers;
 
 import org.jspecify.annotations.NonNull;
 import org.springframework.boot.ApplicationArguments;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -30,12 +30,13 @@ class CustomerGraphqlController {
     }
 
     @QueryMapping
-    Collection <Customer> customersByName(@Argument String name) {
+    Collection<Customer> customersByName(@Argument String name) {
         return customerRepository.findByNameContaining(name);
     }
 }
 
-@RestController
+@Controller
+@ResponseBody
 class CustomerRestController {
 
     private final CustomerRepository customerRepository;

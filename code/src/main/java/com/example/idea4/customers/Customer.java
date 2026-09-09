@@ -1,4 +1,4 @@
-package com.example.idea4;
+package com.example.idea4.customers;
 
 import org.springframework.data.annotation.Id;
 
